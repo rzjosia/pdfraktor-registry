@@ -1,6 +1,7 @@
 # Registry for pdfraktor
 
-Install from the commande line
+Install from the command line
+
 ```bash
 docker pull ghcr.io/rzjosia/pdfraktor-registry:latest
 ```
