@@ -21,6 +21,7 @@ RUN apt -y install --no-install-recommends \
 
 RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
 RUN apt install nodejs
+RUN export NODE_OPTIONS=--openssl-legacy-provider
 
 # Install yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
