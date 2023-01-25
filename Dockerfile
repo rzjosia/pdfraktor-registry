@@ -9,7 +9,6 @@ RUN apt -y install --no-install-recommends \
     zbar-tools \
     bash \
     wget \
-    nodejs \
     git \
     dbus \
     libicu-dev \
@@ -19,6 +18,9 @@ RUN apt -y install --no-install-recommends \
     zlib1g-dev \
     libzip-dev \
     unzip
+
+RUN curl -sL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt install nodejs
 
 # Install yarn
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
