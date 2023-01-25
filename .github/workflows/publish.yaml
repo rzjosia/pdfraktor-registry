@@ -7,9 +7,10 @@ on:
       - "**"
     tags:
       - "v*.*.*"
-  pull_request:
-    branches:
-      - "master"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 jobs:
   docker:
@@ -19,11 +20,6 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v3
-      - 
-        name: Cancel previous runs
-        uses: n1hility/cancel-previous-runs@v2
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
       -
         name: Docker meta
         id: meta
